@@ -29,8 +29,9 @@ async def filter_invites(message):
     if message.channel.id in [818513424782852097, 818513423893397564, 818513422953349171]:
         return False
     message = await lemmatizer.get_lemmatized_sentence(message.content)
-    if "discord.gg" in message or "invite.gg" in message or "discord.io" in message or "dsc.gg" in message or "discord.com/invite" in message:
-        return True
+    for x in message:
+        if "discord.gg" in x or "invite.gg" in x or "discord.io" in x or "dsc.gg" in x or "discord.com/invite" in x:
+            return True
 
 async def filter_mentions(message):
     if len(message.raw_mentions) >= 5:
