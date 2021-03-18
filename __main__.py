@@ -1,6 +1,7 @@
 import json, discord, asyncio
 from discord.ext import commands, tasks
-import lemmatizer, token
+import modules.lemmatizer as lemmatizer
+import data.token as token
 
 automod = commands.Bot(
     command_prefix="oa!"
@@ -14,7 +15,7 @@ async def check_if_mod(author):
     return False
 
 async def filter_words(message: discord.Message):
-    with open("filtered-words.json", 'r') as f:
+    with open("data/filtered-words.json", 'r') as f:
         filtered_words = json.load(f)
 
     message = await lemmatizer.get_lemmatized_sentence(message.content)
