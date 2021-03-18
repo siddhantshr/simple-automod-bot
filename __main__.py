@@ -30,7 +30,7 @@ async def filter_invites(message):
         return False
     message = await lemmatizer.get_lemmatized_sentence(message.content)
     for x in message:
-        if "discord.gg" in x or "invite.gg" in x or "discord.io" in x or "dsc.gg" in x or "discord.com/invite" in x:
+        if "discordgg" in x or "invitegg" in x or "discordio" in x or "dscgg" in x or "discordcominvite" in x:
             return True
 
 async def filter_mentions(message):
